@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+
+
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link href="css/cssinfo.css" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+            function cambiolayout(opciones) {
+                switch (opciones.value) {
+                    case 'operacion':
+                        document.getElementById("ef").style.display = 'none';
+                        document.getElementById("mc").style.display = 'none';
+                        document.getElementById("op").style.display = 'block';
+
+                        break;
+                    case 'espectrof':
+                        document.getElementById("op").style.display = 'none';
+                        document.getElementById("ef").style.display = 'block';
+                        document.getElementById("mc").style.display = 'none';
+
+                        break;
+                    case 'modocalib':
+                        document.getElementById("op").style.display = 'none';
+                        document.getElementById("ef").style.display = 'none';
+                        document.getElementById("mc").style.display = 'block';
+
+                        break;
+                }
+            }
+
+        </script>
+
+        <title>Info. Calibración CFL</title>
+
+    </head>
+    <body>
+
+        <div id='infocal'>
+
+            <p>Espectrofotómetro:</p>
+            <p>Dentro de esta opción encontrarás diversas funciones para operar con los espectros que fotografíes.</p>
+            <p>Selecciona la función de la que quieres obtener información:</p>
+            <select id="opciones" onchange="cambiolayout(this)">
+                <option value="operacion">Operaciones con gráfica</option>
+                <option value="espectrof">Espectrofotómetro con dos valores</option>
+                <option value="modocalib">Modo calibración n valores</option>
+            </select>
+
+            <div id="mybody">
+
+                <!--operaciones-->
+                <div id="op">
+
+                    <p>En este modo puedes realizar operaciones sobre la gráfica generada con la imagen de un espectro.</p>
+                    <p>Comienza abriendo tu imagen desde la librería de tu dispositivo o cargando una imagen de prueba.</p>
+
+                    <img class="imginfo" src="img/info/seleccion1.png" />
+
+
+                    <p>Una vez veas la gráfica puedes escribir expresiones en el recuadro o seleccionar una de las posibles opciones en el menú desplegable.</p>
+                    <p>Se aplicará la expresión Java Script (tal que 'R*G+B') a todos los puntos del espectro y se te mostrará gráficamente.</p>
+                    <p>Las variables de las expresiones matemáticas son:</p>
+                    <p>R: Rojo</p>
+                    <p>G: Verde</p>
+                    <p>B: Azul</p>      
+                    <p>A: Media</p>                    
+
+                    <img class="imginfo" src="img/info/operacion1.png" />
+
+                    <p>Algunas de las otras funciones que puedes aplicar aquí son:</p>
+                    <p>-smooth:'x'</p>
+                    <p>   Suaviza la gráfica obtenida actualmente en x pixeles.</p>
+
+                    <img class="imginfo" src="img/info/operacion2.png" />
+
+                    <p>-range:'min'-'max'</p>
+                    <p>   Te muestra solo el rango de longitudes de onda indicado desde 'min' hasta 'max'. Ten en cuenta que esta función no te permite volver a ver longitudes de onda fuera del rango que tengas a la vista actualmente. Si quieres recuperar la vista original en el eje horizontal, carga de nuevo la imagen.</p>
+
+                    <img class="imginfo" src="img/info/operacion3.png" />
+
+                </div>
+
+                <!--espectrofotometro-->
+
+                <div id ="ef" style="display:none;">
+
+                    <p>En este modo puedes cargar dos imágenes, una con la base de tu experimento y la otra con la disolución que quieras evaluar.</p>
+                    <p>El objetivo de esta función es obtener parámetros interesantes sobre los espectros que evalúes, tales como la absorbancia o la concentración de la disolución.</p>
+                    <p>Comienza seleccionando la imagen que hayas obtenido de fotografiar la base de tu disolución (por ejemplo, agua).</p>
+                    <p>Carga después la imagen del espectro que obtengas añadiendo tu soluto a la base.</p>
+                    <p>También puedes cargar imágenes de muestra con el botón "Cargar prueba".</p>
+                    <p>Aparecerán diferentes recuadros para introducir los valores necesarios para la evaluación:</p>
+
+                    <img class="imginfo" src="img/info/espectrof1.jpg" />
+
+                    <p>-Longitud de onda:</p>
+                    <p>La longitud de onda a la que vas a evaluar el experimento. Puedes visualizar la longitud de onda en la que te encuentras pulsando el botón "Ver".</p>
+                    <p>-Epsilon:</p>
+                    <p>Constante que depende de la base que utilices. Si es agua, su valor es 1.</p>
+                    <p>-Longitud celda:</p>
+                    <p>Longitud de la celda en la que introduces las muestras, medida desde el punto de incidencia de la luz hasta el punto de salida, paralelamente a la base de la celda.</p>
+                    <p>Una vez tengas los datos correctos pulsa "Calcular" y se te mostrará una gráfica de absorbancia frente a concentración con el punto obtenido y los datos con los que se han calculado estos valores.</p>
+
+                    <img class="imginfo" src="img/info/grafica1.jpg" />
+
+                </div>
+
+                <!--Modo calibracion-->
+
+                <div id ="mc" style="display:none;">
+
+                    <p>En este modo puedes cargar diferentes imagenes de muestras con diferentes concentraciones para realizar una recta de calibración y poder estimar absorbancias o concentraciones de muestras de las que no tienes imagen.</p>
+                    <p>Comienza cargando tu imagen con el espectro que tenga la base de tu experimento</p>
+                    <p>Una vez veas tu imagen en pantalla puedes seleccionar los diferentes parámetros para la evaluación del experimento:</p>
+
+                    <img class="imginfo" src="img/info/calib1.jpg" />
+
+                    <p>-Longitud de onda:</p>
+                    <p>La longitud de onda a la que vas a evaluar el experimento. Puedes visualizar la longitud de onda en la que te encuentras pulsando el botón "Ver".</p>
+                    <p>-Epsilon:</p>
+                    <p>Constante que depende de la base que utilices. Si es agua, su valor es 1.</p>
+                    <p>-Longitud celda:</p>
+                    <p>Longitud de la celda en la que introduces las muestras, medida desde el punto de incidencia de la luz hasta el punto de salida, paralelamente a la base de la celda.</p>                  
+                    <p>Se recomienda no modificar ninguno de estos valores durante el resto del experimento, puesto a que perdería utilidad.</p>
+
+                    <p>También puedes cargar imágenes de muestra con el botón "Cargar prueba".</p>
+                    <p>Una vez tengas los valores correctamente introducidos pulsa "Obtener intensidad" para generar el primer valor con el que vas a trabajar. Observarás que la aplicación solo te permite obtener una intensidad por imagen que cargas.</p>
+                    <p>Cuando veas crecer el contador de valores obtenidos puedes proceder a cargar la siguiente muestra con soluto.</p>
+
+                    <img class="imginfo" src="img/info/valoresobtenidos1.jpg" />
+
+                    <p>Continúa obteniendo valores repitiendo el proceso tantas veces como muestras tengas. Son necesarias mínimo dos muestras y con solo dos la función es semejante a la de "Espectrofotómetro con dos valores".</p>
+                    <p>Cuando todas tus muestras esten cargadas pulsa "Obtener recta" y aparecerá en pantalla una gráfica de absorbancia frente a concentración en la que se te muestran todos los puntos generados con tus muestras y una recta calculada por mínimos cuadrados que se ajusta lo mejor posible a la nube de puntos.</p>
+
+                    <img class="imginfo" src="img/info/graf1.jpg" />
+
+                    <p>Bajo la gráfica puedes ver la ecuación de la recta calculada e introducir valores de absorbancia para calcular concentración y viceversa.</p>
+
+                    <img class="imginfo" src="img/info/ecu.jpg" />
+                    <img class="imginfo" src="img/info/calcu.jpg" />
+
+                    <p>Los valores obtenidos se muestran tanto con valor numérico como en la gráfica.</p>
+
+                    <img class="imginfo" src="img/info/graf2.jpg" />
+
+                    <p>Copyright 2018 Carlos Balado Sánchez
+
+                        Licensed under the Apache License, Version 2.0 (the "License");
+                        you may not use this file except in compliance with the License.
+                        You may obtain a copy of the License at
+
+                        http://www.apache.org/license

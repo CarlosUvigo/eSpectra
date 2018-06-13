@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14-ene-2018, 19:10:09
+    Author     : rheor
+*/
+
+#botongrafica, #botondelpalo, #botonobtener, #botonpantallaoperaciones{
+    height: 10%;
+    width: 50%;
+    float: left;
+}
+#botongrafica, #botonpantallaoperaciones{
+    width: 50%;
+}
+
+#graph{
+
+    height: 70% !important;
+}
+
+html, body{
+    height: 100%;
+}
+.nv-context{
+    display: none !important;
+}
+#tablita td{
+    width: 20%;
+}
+#tablita{
+    width: 100%;
+}
+#tablita thead{
+    font-size: 20px;
+    font-weight: bolder;
+}

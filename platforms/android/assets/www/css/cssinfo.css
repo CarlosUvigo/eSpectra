@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-feb-2018, 19:39:45
+    Author     : Carlos Balado Sánchez
+*/
+
+#infocal{
+    margin-left: 15px;
+    margin-right: 15px; 
+}
+
+#botonatras{
+    height: 30px;
+    width: 120px;
+    margin: 5% auto 5% 60%; /*arriba derecha abajo izquierda*/
+}
+
+.imginfo{
+    width: 100%;
+}
+
+
+html, body{
+    height: 100%;
+    background-color: #54777B;
+    padding: 0;
+    margin: 0;
+    color:white;
+
+}
+
+
+button{
+    border: 2px solid #EBD077;
+    background-color: #ACACAC;
+    border-radius: 50px;
+    -webkit-box-shadow: 2px 2px 5px #999;
+    -moz-box-shadow: 2px 2px 5px #999;
+    filter: shadow(color=#6b6b6b, direction=135, strength=2);
+}
+
+#mybody{
+    height: 100%;
+    width: 90%;
+
+    padding-left:15px;
+}

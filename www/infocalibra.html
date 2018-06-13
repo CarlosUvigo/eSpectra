@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+
+
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link href="css/cssinfo.css" rel="stylesheet" type="text/css"/>
+
+        <title>Info. Calibración CFL</title>
+
+    </head>
+    <body>
+
+        <div id='infocal'>
+
+            <p>Calibrado CFL:</p>
+            <p>Cuando cargues una imagen en la aplicación te darás cuenta de que las gráficas que obtienes tienen una escala en nanómetros (nm) en el eje horizontal. 
+                Para obtener datos a escala es necesario calibrar tu espectrofotómetro: Hablamos de calibración de longitud de onda.</p>
+
+            <p>Cuando miras la gráfica de un espectro ves una representación gráfica de las intensidades de cada color a lo largo del espectro, pero la primera vez que lo hagas, no verás el eje horizontal escalado correctamente.
+                Esto sucede porque trabajamos con imágenes cargadas desde el móvil y no sabemos exactamente qué pixel de la imagen corresponde a cada frecuencia de luz.</p>
+
+            <img class="imginfo" src="img/info/sinescalar.png" />
+
+            <p>Una lámpara fluorescente (CFL) contiene vapor de mercurio que, cuando se enciende, emite un espectro característico con picos muy pronunciados. Estos picos siempre ocurren en las mismas longitudes de onda, así que podemos reconocerlos por color y orden y usar esta información para calibrar el eje horizontal.</p>
+            <img class="imginfo" src="img/info/picos.png" />
+
+            <p>Los picos que buscamos son los siguientes: </p>
+            <p>La Linea mercury 2 - "B2" a ~435.8 nm</p>
+            <p>La Linea mercury 3 - "G2" a ~546.1 nm</p>
+
+            <img class="imginfo" src="img/info/B2G2.png" />
+
+            <p>Los pasos a seguir son los siguientes:</p>
+            <p>Si aún no tienes una imagen de un espectro CFL selecciona el icono de la cámara en el menú principal.</p>
+
+            <img class="imginfo" src="img/info/botoncamara.png" />
+
+            <p>Ilumina el espectrofotómetro con una luz fluorescente. Si hay mucha sobreexposición prueba a iluminar una hoja de papel o una pared blanca y apuntar ahí tu espectrofotómetro.</p>
+            <p>Selecciona "Calibración CFL" en el menú principal y abre tu espectro de CFL con el botón "Abrir de galería".</p>
+
+            <p>Una vez cargada la gráfica la app te mostrará los picos del canal verde y azul que considere que son los mencionados "B2" y "G2"</p>
+
+            <img class="imginfo" src="img/info/lineas.png" />
+
+            <p>En caso de no ser esos utiliza las flechas que aparecen bajo la gráfica para seleccionarlos. Podrás ver los que seleccionas en la imagen del espectro.</p>
+
+            <img class="imginfo" src="img/info/lineascambiadas.png" />
+            <img class="imginfo" src="img/info/botonescalibracion.png" />
+
+            <p>Una vez seleccionados "B2" y "G2" pulsa "Calibrar".</p>         
+            <p>Cuando la gráfica se actualice podrás ver el eje horizontal correctamente calibrado.</p>
+            
+            <img class="imginfo" src="img/info/escalado.png" /> 
+            
+            <p>Tu calibración se guarda para posteriores usos de la aplicación. En caso de querer calibrar de nuevo el espectrofotómetro, realiza de nuevo estos pasos o selecciona el botón "Reset" para volver al estado inicial de calibración.</p>
+
+            <button type="button" id="botonatras" onclick="funcionatras()">Volver</button>
+
+
+            <script src="js/windowatras.js" type="text/javascript"></script>
+
+        </div>
+
+    </body>
+</html>

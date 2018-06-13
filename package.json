@@ -1,0 +1,36 @@
+{
+  "name": "com.carlos.tfg",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bower": "^1.8.2",
+    "chart.js": "^2.7.1",
+    "com.subitolabs.android.cordova.galleryapi": "https://github.com/Collaborne/cordova-gallery-api.git",
+    "cordova-android": "^6.3.0",
+    "cordova-gallery-access": "^2.3.0",
+    "cordova-plugin-android-permissions": "^1.0.0",
+    "cordova-plugin-camera": "^4.0.1",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "d3": "^4.12.2",
+    "d3.chart": "^0.3.0",
+    "git": "^0.1.5"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-camera": {},
+      "com.subitolabs.android.cordova.galleryapi": {},
+      "cordova-plugin-android-permissions": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}
