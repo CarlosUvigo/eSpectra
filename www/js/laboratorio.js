@@ -659,7 +659,7 @@ function funcionconcentracion() {
 
                 var wl = parseFloat(this.data.data.lines[i].wavelength);
 
-                if (wl.toFixed() == lo.toFixed()) {
+                if (wl.toFixed() === lo.toFixed()) {
 
                     coincidencia = true;
 
@@ -697,7 +697,7 @@ function funcionconcentracion() {
 
             var wl2 = parseFloat(this.data2.data.lines[i].wavelength);
 
-            if (wl2.toFixed() == lo.toFixed()) {
+            if (wl2.toFixed() === lo.toFixed()) {
 
                 r = this.data2.data.lines[i].r;
                 g = this.data2.data.lines[i].g;
@@ -730,7 +730,7 @@ function funcionconcentracion() {
 
                 var pi = parseFloat(this.data.data.lines[i].pixel);
 
-                if (pi.toFixed() == lo.toFixed()) {
+                if (pi.toFixed() === lo.toFixed()) {
 
                     coincidencia = true;
 
@@ -769,7 +769,7 @@ function funcionconcentracion() {
 
             var pi2 = parseFloat(this.data2.data.lines[i].pixel);
 
-            if (pi2.toFixed() == lo.toFixed()) {
+            if (pi2.toFixed() === lo.toFixed()) {
                 r = this.data2.data.lines[i].r;
                 g = this.data2.data.lines[i].g;
                 b = this.data2.data.lines[i].b;
@@ -798,6 +798,8 @@ function funcionconcentracion() {
     document.getElementById('i1').innerHTML = "I1: " + ((Math.min(i0, i1) * 100) / 255).toFixed(4) + "%";
     document.getElementById('transmitancia').innerHTML = "Transmitancia: " + transmitancia;
     absorbancia = Math.log10(1 / transmitancia);
+    console.log("funcionconcentracion1--------------------> " + absorbancia);
+
     document.getElementById('absorbancia').innerHTML = "Absorbancia: " + absorbancia;
     concentracion = absorbancia / (epsilon * longitud);
     document.getElementById('concentracion').innerHTML = "Concentracion: " + concentracion;
@@ -1019,19 +1021,34 @@ function funcionmodocalibrado() {
         for (var i = 0; i < this.intensidades.length; i++) {
             if (i === 0) {
                 i0 = this.intensidades[i];
+                console.log("funcionmodocalibrado agua I0--------------------> " + i0);
             } else {
                 i1 = this.intensidades[i];
-
-                transmitancia = i1 / i0;
-                absorbancia = Math.log10(1 / transmitancia);
-
+                console.log("funcionmodocalibrado I1--------------------> " + i1);
+                transmitancia = +i1 / +i0;
+                console.log("funcionmodocalibrado transmitancia--------------------> " + transmitancia);
+                absorbancia = Math.log10(1 / +transmitancia);
+                console.log("funcionmodocalibrado absorbancia--------------------> " + absorbancia);
 
                 var e = document.getElementById("textoepsilon2").value;
                 var l = document.getElementById("textolong2").value;
-                ;
 
-                concentracion = absorbancia / (e * l); //considerada logn cubeta = 10mm y epsilon =1
-
+                concentracion = +absorbancia / (+e * +l); //considerada logn cubeta = 10mm y epsilon =1
+                console.log("funcionmodocalibrado concentracion--------------------> " + concentracion);
+                
+               
+                var absortividad = (-(Math.log10(+transmitancia)))/(+l*+e);
+                console.log("funcionmodocalibrado absortividad--------------------> "+absortividad);
+                
+                transmitancia = Math.pow(10,(-absortividad*concentracion*l));
+                console.log("funcionmodocalibrado nueva transmitancia--------------------> " + transmitancia);
+                
+                concentracion = +absorbancia/(+absortividad*(+l));
+                
+                console.log("funcionmodocalibrado nueva concentracion--------------------> "+absorbancia+"/"+absortividad+"*"+l+" " + concentracion);
+                
+                
+                
                 puntos.push({
                     x: concentracion,
                     y: absorbancia,
